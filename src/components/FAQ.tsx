@@ -31,20 +31,23 @@ export default function FAQ() {
   return (
     <section id="faq" className="section-padding bg-slate-50">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-4 block">Got Questions?</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Frequently Asked <span className="text-primary">Questions</span>
+            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-6 block">Got Questions?</span>
+            <h2 className="text-5xl md:text-6xl font-display font-black mb-8 leading-tight tracking-tight">
+              Frequently Asked <span className="text-gradient">Questions</span>
             </h2>
+            <p className="text-slate-500 text-xl font-light leading-relaxed max-w-2xl mx-auto">
+              Find answers to common inquiries about our services, facility, and care approach.
+            </p>
           </motion.div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {faqs.map((faq, idx) => (
             <motion.div
               key={idx}
@@ -52,19 +55,21 @@ export default function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className={`bg-white rounded-3xl border transition-all duration-300 ${activeIndex === idx ? 'border-primary shadow-lg' : 'border-slate-100 shadow-sm'}`}
+              className={`bg-white rounded-[2rem] border transition-all duration-500 overflow-hidden ${activeIndex === idx ? 'border-primary shadow-2xl shadow-primary/10' : 'border-slate-100 shadow-sm hover:shadow-xl hover:shadow-slate-200/50'}`}
             >
               <button
                 onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
-                className="w-full px-8 py-6 flex items-center justify-between text-left"
+                className="w-full px-10 py-8 flex items-center justify-between text-left group"
               >
-                <div className="flex items-center gap-4">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${activeIndex === idx ? 'bg-primary text-white' : 'bg-primary/10 text-primary'}`}>
-                    <HelpCircle size={18} />
+                <div className="flex items-center gap-6">
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 ${activeIndex === idx ? 'bg-primary text-white shadow-lg shadow-primary/30 rotate-6' : 'bg-primary/5 text-primary group-hover:bg-primary/10'}`}>
+                    <HelpCircle size={24} />
                   </div>
-                  <span className={`font-bold text-lg ${activeIndex === idx ? 'text-primary' : 'text-slate-900'}`}>{faq.question}</span>
+                  <span className={`font-black text-xl tracking-tight transition-colors duration-300 ${activeIndex === idx ? 'text-primary' : 'text-slate-900'}`}>{faq.question}</span>
                 </div>
-                {activeIndex === idx ? <ChevronUp className="text-primary" /> : <ChevronDown className="text-slate-400" />}
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 ${activeIndex === idx ? 'bg-primary/10 text-primary rotate-180' : 'bg-slate-50 text-slate-400'}`}>
+                  <ChevronDown size={20} />
+                </div>
               </button>
               
               <AnimatePresence>
@@ -73,9 +78,9 @@ export default function FAQ() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    className="overflow-hidden"
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
                   >
-                    <div className="px-8 pb-8 pt-0 text-slate-600 leading-relaxed border-t border-slate-50 mt-2 pt-4">
+                    <div className="px-10 pb-10 pt-0 text-slate-500 text-lg leading-relaxed font-light border-t border-slate-50 mt-2 pt-8 ml-16">
                       {faq.answer}
                     </div>
                   </motion.div>

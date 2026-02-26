@@ -32,44 +32,47 @@ export default function Team() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-4 block">Our Experts</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Meet Our Dedicated <span className="text-primary">Medical Team</span>
+            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-6 block">Our Experts</span>
+            <h2 className="text-5xl md:text-6xl font-display font-black mb-8 leading-tight tracking-tight">
+              Meet Our Dedicated <span className="text-gradient">Medical Team</span>
             </h2>
-            <p className="text-slate-500 text-lg">
+            <p className="text-slate-500 text-xl font-light leading-relaxed">
               Our team consists of highly qualified and compassionate professionals dedicated to providing the best healthcare experience for you and your loved ones.
             </p>
           </motion.div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {members.map((member, idx) => (
             <motion.div
               key={member.name + idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
               className="group"
             >
-              <div className="relative overflow-hidden rounded-[2.5rem] mb-6 aspect-[4/5] shadow-lg">
+              <div className="relative overflow-hidden rounded-[3rem] mb-8 aspect-[4/5] shadow-xl shadow-slate-200/50 border border-slate-100">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
                   referrerPolicy="no-referrer"
                 />
                 {/* Social Overlay */}
-                <div className="absolute inset-0 bg-primary/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
-                  <a href={`mailto:${settings.contact_email}`} className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
-                    <Mail size={20} />
-                  </a>
+                <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="bg-white/90 backdrop-blur-xl p-4 rounded-2xl flex items-center justify-center shadow-xl">
+                    <a href={`mailto:${settings.contact_email}`} className="flex items-center gap-2 text-primary font-bold text-sm hover:scale-105 transition-transform">
+                      <Mail size={18} />
+                      Contact Expert
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div className="text-center">
-                <h4 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">{member.name}</h4>
-                <p className="text-primary font-medium text-sm mb-3">{member.role}</p>
-                <p className="text-slate-500 text-xs px-4">{member.expertise}</p>
+              <div className="text-center px-4">
+                <h4 className="text-2xl font-black mb-1 group-hover:text-primary transition-colors tracking-tighter">{member.name}</h4>
+                <p className="text-primary font-bold text-xs mb-4 uppercase tracking-widest">{member.role}</p>
+                <p className="text-slate-500 text-sm font-light leading-relaxed">{member.expertise}</p>
               </div>
             </motion.div>
           ))}

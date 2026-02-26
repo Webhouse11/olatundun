@@ -53,40 +53,40 @@ export default function Appointment() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-4 block">Get in Touch</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight">
-              Book an <span className="text-primary">Appointment</span> with Our Specialists
+            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-6 block">Get in Touch</span>
+            <h2 className="text-5xl md:text-6xl font-display font-black mb-10 leading-[1.1] tracking-tight">
+              Book an <span className="text-gradient">Appointment</span> with Our Specialists
             </h2>
-            <p className="text-slate-600 text-lg mb-10 leading-relaxed">
+            <p className="text-slate-500 text-xl mb-12 leading-relaxed font-light">
               Take the first step towards better health. Whether you need geriatric care, maternity support, or a general check-up, our team is ready to assist you.
             </p>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-5">
-                <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-primary flex-shrink-0">
-                  <Phone size={24} />
+            <div className="space-y-8">
+              <div className="flex items-start gap-6 group">
+                <div className="w-14 h-14 bg-white rounded-2xl shadow-xl shadow-slate-200/50 flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                  <Phone size={28} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">Call Us Directly</h4>
-                  <p className="text-slate-500">{settings.contact_phone}</p>
+                  <h4 className="text-xl font-black text-slate-900 mb-1">Call Us Directly</h4>
+                  <p className="text-slate-500 text-lg font-light">{settings.contact_phone}</p>
                 </div>
               </div>
-              <div className="flex items-start gap-5">
-                <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-secondary flex-shrink-0">
-                  <Mail size={24} />
+              <div className="flex items-start gap-6 group">
+                <div className="w-14 h-14 bg-white rounded-2xl shadow-xl shadow-slate-200/50 flex items-center justify-center text-secondary flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                  <Mail size={28} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">Email Support</h4>
-                  <p className="text-slate-500">{settings.contact_email}</p>
+                  <h4 className="text-xl font-black text-slate-900 mb-1">Email Support</h4>
+                  <p className="text-slate-500 text-lg font-light">{settings.contact_email}</p>
                 </div>
               </div>
-              <div className="flex items-start gap-5">
-                <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-accent flex-shrink-0">
-                  <Clock size={24} />
+              <div className="flex items-start gap-6 group">
+                <div className="w-14 h-14 bg-white rounded-2xl shadow-xl shadow-slate-200/50 flex items-center justify-center text-accent flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                  <Clock size={28} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">Working Hours</h4>
-                  <p className="text-slate-500">Mon - Sat: 8:00 AM - 6:00 PM (Emergency 24/7)</p>
+                  <h4 className="text-xl font-black text-slate-900 mb-1">Working Hours</h4>
+                  <p className="text-slate-500 text-lg font-light">Mon - Sat: 8:00 AM - 6:00 PM <span className="block text-sm font-bold text-primary uppercase tracking-widest mt-1">Emergency 24/7</span></p>
                 </div>
               </div>
             </div>
@@ -96,37 +96,39 @@ export default function Appointment() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white p-10 md:p-12 rounded-[3rem] shadow-2xl border border-slate-100"
+            className="bg-white p-12 md:p-16 rounded-[4rem] shadow-2xl shadow-slate-200/60 border border-slate-100 relative overflow-hidden group"
           >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 group-hover:scale-150 transition-transform duration-1000"></div>
+            
             {isSubmitted ? (
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-primary/10 border border-primary/20 p-12 rounded-[2.5rem] text-center"
+                className="bg-primary/5 border border-primary/10 p-12 rounded-[3rem] text-center relative z-10"
               >
-                <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white mx-auto mb-6 shadow-lg">
-                  <CheckCircle size={40} />
+                <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-white mx-auto mb-8 shadow-2xl shadow-primary/40">
+                  <CheckCircle size={48} />
                 </div>
-                <h3 className="text-2xl font-display font-bold text-slate-900 mb-4">Request Sent!</h3>
-                <p className="text-slate-600">Your appointment request has been sent via WhatsApp. Our medical team will review it and get back to you shortly.</p>
+                <h3 className="text-3xl font-display font-black text-slate-900 mb-6">Request Sent!</h3>
+                <p className="text-slate-500 text-lg font-light leading-relaxed">Your appointment request has been sent via WhatsApp. Our medical team will review it and get back to you shortly.</p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+                <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Patient Name</label>
+                    <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Patient Name</label>
                     <input 
                       required
                       type="text" 
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      placeholder="John Doe"
-                      className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                      placeholder="Full Name"
+                      className="w-full px-8 py-5 bg-slate-50 border border-slate-100 rounded-[1.5rem] focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary focus:bg-white transition-all font-medium"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Phone / WhatsApp</label>
+                    <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Phone / WhatsApp</label>
                     <input 
                       required
                       type="tel" 
@@ -134,58 +136,61 @@ export default function Appointment() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="+234..."
-                      className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                      className="w-full px-8 py-5 bg-slate-50 border border-slate-100 rounded-[1.5rem] focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary focus:bg-white transition-all font-medium"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">Email Address</label>
+                  <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Email Address</label>
                   <input 
                     required
                     type="email" 
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder="john@example.com"
-                    className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                    placeholder="email@example.com"
+                    className="w-full px-8 py-5 bg-slate-50 border border-slate-100 rounded-[1.5rem] focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary focus:bg-white transition-all font-medium"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">Service Interested In</label>
-                  <select 
-                    required 
-                    name="service"
-                    value={formData.service}
-                    onChange={handleInputChange}
-                    className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all appearance-none cursor-pointer"
-                  >
-                    <option value="">Select a service</option>
-                    <option>Elderly & Geriatric Care</option>
-                    <option>Home Health Care</option>
-                    <option>Maternity & Obstetric Services</option>
-                    <option>Fertility & Reproductive Health</option>
-                    <option>General Health Services</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">Preferred Date & Time</label>
+                  <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Service Interested In</label>
                   <div className="relative">
-                    <input 
-                      required
-                      type="datetime-local" 
-                      name="datetime"
-                      value={formData.datetime}
+                    <select 
+                      required 
+                      name="service"
+                      value={formData.service}
                       onChange={handleInputChange}
-                      className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all cursor-pointer"
-                    />
+                      className="w-full px-8 py-5 bg-slate-50 border border-slate-100 rounded-[1.5rem] focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary focus:bg-white transition-all appearance-none cursor-pointer font-medium"
+                    >
+                      <option value="">Select a service</option>
+                      <option>Elderly & Geriatric Care</option>
+                      <option>Home Health Care</option>
+                      <option>Maternity & Obstetric Services</option>
+                      <option>Fertility & Reproductive Health</option>
+                      <option>General Health Services</option>
+                    </select>
+                    <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                      <Calendar size={20} />
+                    </div>
                   </div>
                 </div>
-                <button type="submit" className="w-full btn-primary py-5 text-lg flex items-center justify-center gap-3">
-                  <MessageSquare size={22} />
-                  Send via WhatsApp
+                <div>
+                  <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Preferred Date & Time</label>
+                  <input 
+                    required
+                    type="datetime-local" 
+                    name="datetime"
+                    value={formData.datetime}
+                    onChange={handleInputChange}
+                    className="w-full px-8 py-5 bg-slate-50 border border-slate-100 rounded-[1.5rem] focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary focus:bg-white transition-all cursor-pointer font-medium"
+                  />
+                </div>
+                <button type="submit" className="w-full btn-primary py-6 text-xl">
+                  <MessageSquare size={24} />
+                  Book via WhatsApp
                 </button>
-                <p className="text-center text-slate-400 text-xs">
-                  By submitting this form, you will be redirected to WhatsApp to complete your request.
+                <p className="text-center text-slate-400 text-xs font-medium uppercase tracking-widest">
+                  Direct connection to our medical team
                 </p>
               </form>
             )}
