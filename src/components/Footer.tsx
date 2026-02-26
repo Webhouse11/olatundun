@@ -15,13 +15,6 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              {settings.logo_url ? (
-                <SafeImage src={settings.logo_url} alt="Olatundun Nursing Home Logo" className="h-16 w-auto object-contain" />
-              ) : (
-                <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-2xl">
-                  {settings.logo_text}
-                </div>
-              )}
               <span className="font-display font-black text-xl tracking-tighter leading-none text-white">
                 Olatundun <span className="text-primary">Nursing Home</span>
                 <span className="block text-[10px] font-medium opacity-60 mt-0.5 uppercase tracking-widest">Geriatric Center</span>
