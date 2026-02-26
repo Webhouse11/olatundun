@@ -30,7 +30,7 @@ export default function Appointment() {
       `*Service:* ${formData.service}%0A` +
       `*Preferred Date/Time:* ${formData.datetime}`;
     
-    const whatsappUrl = `https://wa.me/${settings?.contact_phone.replace(/\D/g, '')}?text=${message}`;
+    const whatsappUrl = `https://wa.me/${settings?.contact_phone.replace(/\D/g, '').replace(/^0/, '234')}?text=${message}`;
     
     // Open WhatsApp
     window.open(whatsappUrl, '_blank');

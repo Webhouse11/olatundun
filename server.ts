@@ -54,9 +54,6 @@ async function startServer() {
 
   app.use(express.json({ limit: '10mb' }));
 
-  // Serve static files from public directory (useful for images)
-  app.use(express.static(path.join(__dirname, "public")));
-
   // API Routes
   app.get("/api/settings", (req, res) => {
     const rows = db.prepare("SELECT * FROM settings").all();

@@ -30,6 +30,10 @@ export default function SafeImage({
     setHasError(false);
   }, [src]);
 
+  if (!src) return null;
+
+  const isExternal = src.startsWith('http');
+
   return (
     <img
       {...props}
@@ -37,7 +41,7 @@ export default function SafeImage({
       alt={alt}
       className={className}
       onError={handleError}
-      referrerPolicy="no-referrer"
+      referrerPolicy={isExternal ? "no-referrer" : undefined}
     />
   );
 }
