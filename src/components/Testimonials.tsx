@@ -7,19 +7,19 @@ export default function Testimonials() {
       name: 'Mrs. Adeola Johnson',
       role: 'Daughter of Patient',
       text: 'The care my father received at Olatundun was exceptional. The staff treated him with so much dignity and love. It felt like he was with family.',
-      image: 'https://picsum.photos/seed/p1/100/100'
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100'
     },
     {
       name: 'Mr. Ibrahim Bello',
       role: 'Geriatric Care Patient',
       text: 'I was hesitant about nursing homes, but Olatundun changed my perspective. The medical attention is top-notch, and the environment is very peaceful.',
-      image: 'https://picsum.photos/seed/p2/100/100'
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100'
     },
     {
       name: 'Sarah Williams',
       role: 'New Mother',
       text: 'Their maternity support was a lifesaver for me as a first-time mom. The nurses are so patient and knowledgeable. Highly recommended!',
-      image: 'https://picsum.photos/seed/p3/100/100'
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100'
     }
   ];
 

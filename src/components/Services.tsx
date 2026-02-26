@@ -123,7 +123,7 @@ export default function Services() {
 
           <div className="relative hidden lg:block">
             <img
-              src="https://picsum.photos/seed/doctor/600/600"
+              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600"
               alt="Professional Medical Care"
               className="rounded-3xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-700"
               referrerPolicy="no-referrer"

@@ -34,13 +34,13 @@ const DEFAULT_SETTINGS: SiteSettings = {
   logo_url: "",
   hero_title: "Compassionate Care for Every Stage of Life",
   hero_subtitle: "Holistic healthcare for the elderly, mothers, and families — at our facility or in the comfort of your home.",
-  hero_image: "https://picsum.photos/seed/nursing/1920/1080",
+  hero_image: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=1920",
   about_title: "A Professional Healthcare Facility Committed to Compassionate Care",
   about_description: "Olatundun Nursing Home and Geriatric Center LTD is a professional healthcare facility committed to compassionate care for the elderly, mothers, and families.",
-  about_image: "https://picsum.photos/seed/care/800/1000",
+  about_image: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=800",
   ceo_name: "Adio Lateefat Oluwakemi",
   ceo_role: "Founder & Lead Nurse",
-  ceo_image: "https://picsum.photos/seed/ceo/200/200",
+  ceo_image: "https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&q=80&w=400",
   contact_phone: "+234 800 000 0000",
   contact_email: "olatundungeriatric25@gmail.com",
   contact_address: "123 Healthcare Avenue, Osogbo, Osun State, Nigeria",
@@ -49,25 +49,25 @@ const DEFAULT_SETTINGS: SiteSettings = {
       name: 'Adio Lateefat Oluwakemi',
       role: 'CEO & Founder',
       expertise: 'Geriatric & Maternity Specialist',
-      image: 'https://picsum.photos/seed/nurse1/400/500'
+      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400'
     },
     {
       name: 'Dr. Samuel Okoro',
       role: 'Lead Geriatrician',
       expertise: 'Elderly Chronic Disease Management',
-      image: 'https://picsum.photos/seed/doctor1/400/500'
+      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400'
     },
     {
       name: 'Nurse Blessing Adeyemi',
       role: 'Maternity Lead',
       expertise: 'Obstetric & Fertility Support',
-      image: 'https://picsum.photos/seed/nurse2/400/500'
+      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400'
     },
     {
       name: 'Dr. Fatima Ibrahim',
       role: 'Reproductive Health Expert',
       expertise: 'Fertility & Family Planning',
-      image: 'https://picsum.photos/seed/doctor2/400/500'
+      image: 'https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&q=80&w=400'
     }
   ])
 };
