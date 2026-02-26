@@ -28,6 +28,50 @@ interface SiteContextType {
 
 const SiteContext = createContext<SiteContextType | undefined>(undefined);
 
+const DEFAULT_SETTINGS: SiteSettings = {
+  site_name: "Olatundun Nursing Home and Geriatric Center",
+  logo_text: "O",
+  logo_url: "",
+  hero_title: "Compassionate Care for Every Stage of Life",
+  hero_subtitle: "Holistic healthcare for the elderly, mothers, and families — at our facility or in the comfort of your home.",
+  hero_image: "https://picsum.photos/seed/nursing/1920/1080",
+  about_title: "A Professional Healthcare Facility Committed to Compassionate Care",
+  about_description: "Olatundun Nursing Home and Geriatric Center LTD is a professional healthcare facility committed to compassionate care for the elderly, mothers, and families.",
+  about_image: "https://picsum.photos/seed/care/800/1000",
+  ceo_name: "Adio Lateefat Oluwakemi",
+  ceo_role: "Founder & Lead Nurse",
+  ceo_image: "https://picsum.photos/seed/ceo/200/200",
+  contact_phone: "+234 800 000 0000",
+  contact_email: "olatundungeriatric25@gmail.com",
+  contact_address: "123 Healthcare Avenue, Osogbo, Osun State, Nigeria",
+  team_members: JSON.stringify([
+    {
+      name: 'Adio Lateefat Oluwakemi',
+      role: 'CEO & Founder',
+      expertise: 'Geriatric & Maternity Specialist',
+      image: 'https://picsum.photos/seed/nurse1/400/500'
+    },
+    {
+      name: 'Dr. Samuel Okoro',
+      role: 'Lead Geriatrician',
+      expertise: 'Elderly Chronic Disease Management',
+      image: 'https://picsum.photos/seed/doctor1/400/500'
+    },
+    {
+      name: 'Nurse Blessing Adeyemi',
+      role: 'Maternity Lead',
+      expertise: 'Obstetric & Fertility Support',
+      image: 'https://picsum.photos/seed/nurse2/400/500'
+    },
+    {
+      name: 'Dr. Fatima Ibrahim',
+      role: 'Reproductive Health Expert',
+      expertise: 'Fertility & Family Planning',
+      image: 'https://picsum.photos/seed/doctor2/400/500'
+    }
+  ])
+};
+
 export function SiteProvider({ children }: { children: React.ReactNode }) {
   const [settings, setSettings] = useState<SiteSettings | null>(null);
   const [loading, setLoading] = useState(true);
@@ -35,10 +79,12 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
   const fetchSettings = async () => {
     try {
       const response = await fetch('/api/settings');
+      if (!response.ok) throw new Error('Failed to fetch');
       const data = await response.json();
       setSettings(data);
     } catch (error) {
-      console.error('Failed to fetch settings:', error);
+      console.error('Failed to fetch settings, using defaults:', error);
+      setSettings(DEFAULT_SETTINGS);
     } finally {
       setLoading(false);
     }
