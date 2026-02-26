@@ -8,6 +8,7 @@ import {
   HeartPulse,
   ArrowRight
 } from 'lucide-react';
+import SafeImage from './common/SafeImage';
 
 export default function Services() {
   const services = [
@@ -58,42 +59,39 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-6 block">Our Expertise</span>
-            <h2 className="text-5xl md:text-6xl font-display font-black mb-8 leading-tight tracking-tight">
-              Comprehensive <span className="text-gradient">Healthcare Services</span>
+            <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-4 block">Our Expertise</span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+              Comprehensive Healthcare <span className="text-primary">Services</span>
             </h2>
-            <p className="text-slate-500 text-xl font-light leading-relaxed">
+            <p className="text-slate-500 text-lg">
               We offer a wide range of specialized medical services designed to meet the diverse needs of our community, from infancy to the golden years.
             </p>
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className={`group p-12 rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 card-hover relative overflow-hidden ${service.color}`}
+              transition={{ delay: idx * 0.1 }}
+              className={`group p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 card-hover ${service.color}`}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/40 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
-              <div className="relative z-10">
-                <div className="w-20 h-20 bg-white rounded-[1.5rem] flex items-center justify-center mb-10 shadow-xl shadow-slate-200/50 group-hover:rotate-6 transition-transform duration-500">
-                  {service.icon}
-                </div>
-                <h3 className="text-3xl font-black mb-6 group-hover:text-primary transition-colors tracking-tighter">{service.title}</h3>
-                <p className="text-slate-500 text-lg mb-10 leading-relaxed font-light">
-                  {service.desc}
-                </p>
-                <a 
-                  href="#appointment" 
-                  className="inline-flex items-center gap-3 text-primary font-black group-hover:gap-5 transition-all uppercase text-xs tracking-widest"
-                >
-                  Learn More <ArrowRight size={20} />
-                </a>
+              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform duration-500">
+                {service.icon}
               </div>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{service.title}</h3>
+              <p className="text-slate-600 mb-8 leading-relaxed">
+                {service.desc}
+              </p>
+              <a 
+                href="#appointment" 
+                className="inline-flex items-center gap-2 text-primary font-bold group-hover:gap-3 transition-all"
+              >
+                Learn More <ArrowRight size={18} />
+              </a>
             </motion.div>
           ))}
         </div>
@@ -125,11 +123,10 @@ export default function Services() {
           </div>
 
           <div className="relative hidden lg:block">
-            <img
+            <SafeImage
               src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600"
               alt="Professional Medical Care"
               className="rounded-3xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-700"
-              referrerPolicy="no-referrer"
             />
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { CheckCircle2, Heart, Shield, Award } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
+import SafeImage from './common/SafeImage';
 
 export default function About() {
   const { settings } = useSite();
@@ -25,11 +26,10 @@ export default function About() {
             className="relative"
           >
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
-              <img
+              <SafeImage
                 src={settings.about_image}
                 alt="Healthcare Facility"
                 className="w-full h-auto"
-                referrerPolicy="no-referrer"
               />
             </div>
             {/* Experience Badge */}
@@ -44,40 +44,38 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-6 block">About the Center</span>
-            <h2 className="text-5xl md:text-6xl font-display font-black mb-8 leading-[1.1] tracking-tight">
+            <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-4 block">About the Center</span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 leading-tight">
               {settings.about_title}
             </h2>
-            <p className="text-slate-500 text-xl mb-10 leading-relaxed font-light">
+            <p className="text-slate-600 text-lg mb-8 leading-relaxed">
               {settings.about_description}
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-8 mb-12">
+            <div className="grid sm:grid-cols-2 gap-6 mb-10">
               {['24/7 Professional Nursing', 'Personalized Care Plans', 'Home Health Services', 'Modern Medical Equipment'].map((item) => (
-                <div key={item} className="flex items-center gap-4 group">
-                  <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                    <CheckCircle2 size={20} />
+                <div key={item} className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center">
+                    <CheckCircle2 size={16} className="text-primary" />
                   </div>
-                  <span className="font-bold text-slate-800 tracking-tight">{item}</span>
+                  <span className="font-medium text-slate-700">{item}</span>
                 </div>
               ))}
             </div>
 
-            <div className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
-              <div className="flex flex-col md:flex-row gap-8 items-center relative z-10">
-                <div className="w-28 h-28 rounded-2xl overflow-hidden flex-shrink-0 border-4 border-primary/10 shadow-lg">
-                  <img
+            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+              <div className="flex flex-col md:flex-row gap-6 items-center">
+                <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-4 border-primary/10">
+                  <SafeImage
                     src={settings.ceo_image}
                     alt="CEO Portrait"
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <h4 className="text-2xl font-black mb-1">{settings.ceo_name}</h4>
-                  <p className="text-primary font-bold text-sm mb-4 uppercase tracking-widest">{settings.ceo_role}</p>
-                  <p className="text-slate-500 text-base italic leading-relaxed font-light">
+                  <h4 className="text-xl font-bold mb-1">{settings.ceo_name}</h4>
+                  <p className="text-primary font-medium text-sm mb-3">{settings.ceo_role}</p>
+                  <p className="text-slate-500 text-sm italic">
                     "Our mission is to provide holistic healthcare that honors the dignity of every individual we serve."
                   </p>
                 </div>

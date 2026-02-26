@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
+import SafeImage from './common/SafeImage';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,22 +14,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-8 group cursor-pointer">
+            <div className="flex items-center gap-2 mb-6">
               {settings.logo_url ? (
-                <img src={settings.logo_url} alt="Logo" className="h-12 w-auto object-contain" />
+                <SafeImage src={settings.logo_url} alt="Logo" className="h-10 w-auto object-contain" />
               ) : (
-                <div className="w-11 h-11 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-primary/20 group-hover:rotate-6 transition-transform">
+                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
                   {settings.logo_text}
                 </div>
               )}
-              <div className="flex flex-col">
-                <span className="font-display font-black text-xl md:text-2xl tracking-tighter leading-none text-white">
-                  Olatundun <span className="text-primary">Nursing Home</span>
-                </span>
-                <span className="text-[10px] md:text-[11px] font-bold mt-0.5 uppercase tracking-[0.2em] text-white/50">
-                  Geriatric Center
-                </span>
-              </div>
+              <span className="font-display font-black text-xl tracking-tighter leading-none text-white">
+                Olatundun <span className="text-primary">Nursing Home</span>
+                <span className="block text-[10px] font-medium opacity-60 mt-0.5 uppercase tracking-widest">Geriatric Center</span>
+              </span>
             </div>
             <p className="text-sm leading-relaxed mb-8">
               Professional healthcare facility committed to compassionate care for the elderly, mothers, and families. Your health and dignity are our top priorities.

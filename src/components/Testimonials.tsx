@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Quote, Star } from 'lucide-react';
+import SafeImage from './common/SafeImage';
 
 export default function Testimonials() {
   const testimonials = [
@@ -65,11 +66,10 @@ export default function Testimonials() {
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
-                  <img
+                  <SafeImage
                     src={t.image}
                     alt={t.name}
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
                   />
                 </div>
                 <div>

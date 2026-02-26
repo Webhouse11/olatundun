@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, ImgHTMLAttributes } from 'react';
 
-interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface SafeImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   fallback?: string;
+  src?: string;
+  alt?: string;
+  className?: string;
 }
 
 export default function SafeImage({ 

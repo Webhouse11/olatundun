@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSite, SiteSettings } from '../context/SiteContext';
 import { Save, Upload, Image as ImageIcon, Layout, Phone, Info, Home, Users, Plus, Trash2 } from 'lucide-react';
 import { motion } from 'motion/react';
+import SafeImage from './common/SafeImage';
 
 interface TeamMember {
   name: string;
@@ -179,7 +180,7 @@ export default function Dashboard() {
                   <div className="flex items-center gap-6">
                     <div className="w-20 h-20 bg-slate-100 rounded-2xl border-2 border-dashed border-slate-300 flex items-center justify-center overflow-hidden">
                       {localSettings.logo_url ? (
-                        <img src={localSettings.logo_url} alt="Logo" className="w-full h-full object-contain" />
+                        <SafeImage src={localSettings.logo_url} alt="Logo" className="w-full h-full object-contain" />
                       ) : (
                         <ImageIcon className="text-slate-400" size={32} />
                       )}
@@ -228,7 +229,7 @@ export default function Dashboard() {
                   <label className="block text-sm font-bold text-slate-700 mb-2">Hero Background Image</label>
                   <div className="space-y-4">
                     <div className="w-full h-48 bg-slate-100 rounded-2xl overflow-hidden border border-slate-200">
-                      <img src={localSettings.hero_image} alt="Hero Preview" className="w-full h-full object-cover" />
+                      <SafeImage src={localSettings.hero_image} alt="Hero Preview" className="w-full h-full object-cover" />
                     </div>
                     <div className="flex items-center gap-4">
                       <input
@@ -277,7 +278,7 @@ export default function Dashboard() {
                     <label className="block text-sm font-bold text-slate-700 mb-2">About Section Image</label>
                     <div className="space-y-4">
                       <div className="w-full h-40 bg-slate-100 rounded-2xl overflow-hidden border border-slate-200">
-                        <img src={localSettings.about_image} alt="About Preview" className="w-full h-full object-cover" />
+                        <SafeImage src={localSettings.about_image} alt="About Preview" className="w-full h-full object-cover" />
                       </div>
                       <label className="w-full cursor-pointer bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
                         <Upload size={18} />
@@ -311,7 +312,7 @@ export default function Dashboard() {
                       <label className="block text-sm font-bold text-slate-700 mb-2">CEO Image</label>
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full overflow-hidden border border-slate-200">
-                          <img src={localSettings.ceo_image} alt="CEO" className="w-full h-full object-cover" />
+                          <SafeImage src={localSettings.ceo_image} alt="CEO" className="w-full h-full object-cover" />
                         </div>
                         <label className="cursor-pointer bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
                           <Upload size={16} />
@@ -349,7 +350,7 @@ export default function Dashboard() {
                       <div className="grid md:grid-cols-[120px_1fr] gap-6">
                         <div className="space-y-3">
                           <div className="w-full aspect-[4/5] bg-slate-200 rounded-xl overflow-hidden">
-                            <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                            <SafeImage src={member.image} alt={member.name} className="w-full h-full object-cover" />
                           </div>
                           <label className="w-full cursor-pointer bg-white border border-slate-200 text-slate-600 px-2 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center justify-center gap-1">
                             <Upload size={14} />
