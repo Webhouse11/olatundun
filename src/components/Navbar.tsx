@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Phone, MessageCircle, Settings } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useSite } from '../context/SiteContext';
+import SafeImage from './common/SafeImage';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,23 +32,19 @@ export default function Navbar() {
     <>
       <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'glass-nav py-3' : 'bg-transparent py-5'}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-            <div className="flex items-center gap-3 group cursor-pointer">
-              {settings.logo_url ? (
-                <img src={settings.logo_url} alt="Logo" className="h-12 w-auto object-contain" />
-              ) : (
-                <div className="w-11 h-11 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-primary/20 group-hover:rotate-6 transition-transform">
-                  {settings.logo_text}
-                </div>
-              )}
-              <div className="flex flex-col">
-                <span className={`font-display font-black text-xl md:text-2xl tracking-tighter leading-none ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
-                  Olatundun <span className="text-primary">Nursing Home</span>
-                </span>
-                <span className={`text-[10px] md:text-[11px] font-bold mt-0.5 uppercase tracking-[0.2em] ${isScrolled ? 'text-slate-500' : 'text-white/70'}`}>
-                  Geriatric Center
-                </span>
+          <div className="flex items-center gap-2">
+            {settings.logo_url ? (
+              <SafeImage src={settings.logo_url} alt="Logo" className="h-10 w-auto object-contain" />
+            ) : (
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                {settings.logo_text}
               </div>
-            </div>
+            )}
+            <span className={`font-display font-black text-lg md:text-xl tracking-tighter leading-none ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
+              Olatundun <span className="text-primary">Nursing Home</span>
+              <span className="block text-[10px] md:text-xs font-medium opacity-80 mt-0.5 uppercase tracking-widest">Geriatric Center</span>
+            </span>
+          </div>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">

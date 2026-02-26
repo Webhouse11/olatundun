@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Calendar, MessageCircle, ArrowRight } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
+import SafeImage from './common/SafeImage';
 
 export default function Hero() {
   const { settings } = useSite();
@@ -11,52 +12,46 @@ export default function Hero() {
     <section id="home" className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
+        <SafeImage
           src={settings.hero_image}
           alt="Nursing Home Background"
           className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/60 to-transparent"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
         <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 text-primary rounded-full text-xs font-bold mb-8 backdrop-blur-md uppercase tracking-widest">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-                Welcome to {settings.site_name}
-              </span>
-              <h1 className="text-6xl md:text-8xl font-display font-black text-white leading-[0.95] mb-8 tracking-tighter">
-                {settings.hero_title.split(' ').map((word, i) => (
-                  <span key={i} className="inline-block mr-4">{word}</span>
-                ))}
-              </h1>
-              <p className="text-xl md:text-2xl text-slate-200 mb-12 leading-relaxed max-w-xl font-light">
-                {settings.hero_subtitle}
-              </p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block px-4 py-1.5 bg-primary/20 border border-primary/30 text-primary rounded-full text-sm font-semibold mb-6 backdrop-blur-sm">
+              Welcome to {settings.site_name}
+            </span>
+            <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.1] mb-6">
+              {settings.hero_title}
+            </h1>
+            <p className="text-lg md:text-xl text-slate-200 mb-10 leading-relaxed">
+              {settings.hero_subtitle}
+            </p>
 
-              <div className="flex flex-col sm:flex-row gap-6">
-                <a href="#appointment" className="btn-primary group">
-                  <Calendar size={22} />
-                  Book Appointment
-                  <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-                </a>
-                <a 
-                  href={`https://wa.me/${settings.contact_phone.replace(/\D/g, '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-xl border border-white/20 px-8 py-4 rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-3 group"
-                >
-                  <MessageCircle size={22} className="group-hover:scale-110 transition-transform" />
-                  WhatsApp Us
-                </a>
-              </div>
-            </motion.div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="#appointment" className="btn-primary flex items-center justify-center gap-2 group">
+                <Calendar size={20} />
+                Book Appointment
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a 
+                href={`https://wa.me/${settings.contact_phone.replace(/\D/g, '')}`}
+                className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/30 px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <MessageCircle size={20} />
+                Contact on WhatsApp
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
 
