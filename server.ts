@@ -21,7 +21,7 @@ db.exec(`
 const defaultSettings = {
   "site_name": "Olatundun Nursing Home and Geriatric Center",
   "logo_text": "O",
-  "logo_url": "/images/logo.svg",
+  "logo_url": "https://res.cloudinary.com/dhzouslh1/image/upload/v1772182746/1000097630_hultaz.jpg",
   "hero_title": "Compassionate Care for Every Stage of Life",
   "hero_subtitle": "Holistic healthcare for the elderly, mothers, and families — at our facility or in the comfort of your home.",
   "hero_image": "/images/hero_image.jpg",
@@ -30,7 +30,7 @@ const defaultSettings = {
   "about_image": "/images/about_image.png",
   "ceo_name": "Adio Lateefat Oluwakemi",
   "ceo_role": "Founder & Lead Nurse",
-  "ceo_image": "/images/ceo_image.jpg",
+  "ceo_image": "https://drive.google.com/uc?export=view&id=1PMXGLhLb6td-uQelbk87_HSCwNZed2dz",
   "contact_phone": "08078175508",
   "contact_email": "olatundungeriatric25@gmail.com",
   "contact_address": "123 Healthcare Avenue, Osogbo, Osun State, Nigeria",
@@ -48,8 +48,11 @@ db.prepare("UPDATE settings SET value = ? WHERE key = 'contact_email' AND value 
 // Force update the phone number if it's the old default
 db.prepare("UPDATE settings SET value = ? WHERE key = 'contact_phone' AND value = '+234 800 000 0000'").run("08078175508");
 
-// Force update the logo URL to the new SVG
-db.prepare("UPDATE settings SET value = ? WHERE key = 'logo_url'").run("/images/logo.svg");
+// Force update the logo URL to the new Cloudinary link
+db.prepare("UPDATE settings SET value = ? WHERE key = 'logo_url'").run("https://res.cloudinary.com/dhzouslh1/image/upload/v1772182746/1000097630_hultaz.jpg");
+
+// Force update the CEO image URL to the new Google Drive link
+db.prepare("UPDATE settings SET value = ? WHERE key = 'ceo_image'").run("https://drive.google.com/uc?export=view&id=1PMXGLhLb6td-uQelbk87_HSCwNZed2dz");
 
 async function startServer() {
   const app = express();

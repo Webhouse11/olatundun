@@ -34,7 +34,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex items-center gap-3">
             {settings.logo_url ? (
-              <SafeImage src={settings.logo_url} alt="Olatundun Nursing Home Logo" className="h-16 w-auto object-contain" />
+              <SafeImage src={settings.logo_url} alt="Olatundun Nursing Home Logo" className="h-[50px] w-auto object-contain" />
             ) : (
               <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-2xl">
                 {settings.logo_text}

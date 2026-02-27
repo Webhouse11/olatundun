@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
               {settings.logo_url ? (
-                <SafeImage src={settings.logo_url} alt="Olatundun Nursing Home Logo" className="h-16 w-auto object-contain" />
+                <SafeImage src={settings.logo_url} alt="Olatundun Nursing Home Logo" className="h-[50px] w-auto object-contain" />
               ) : (
                 <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-2xl">
                   {settings.logo_text}
