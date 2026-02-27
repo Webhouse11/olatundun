@@ -34,7 +34,7 @@ const DEFAULT_SETTINGS: SiteSettings = {
   "logo_url": "https://res.cloudinary.com/dhzouslh1/image/upload/v1772182746/1000097630_hultaz.jpg",
   "hero_title": "Compassionate Care for Every Stage of Life",
   "hero_subtitle": "Holistic healthcare for the elderly, mothers, and families — at our facility or in the comfort of your home.",
-  "hero_image": "/images/hero_image.jpg",
+  "hero_image": "https://res.cloudinary.com/dhzouslh1/image/upload/c_fill,w_auto,f_auto,q_auto/v1772182745/1000097638_rczupj.jpg",
   "about_title": "A Professional Healthcare Facility Committed to Compassionate Care",
   "about_description": "Olatundun Nursing Home and Geriatric Center LTD is a professional healthcare facility committed to compassionate care for the elderly, mothers, and families.",
   "about_image": "/images/about_image.png",

@@ -11,12 +11,16 @@ export default function Hero() {
   return (
     <section id="home" className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <SafeImage
-          src={settings.hero_image}
-          alt="Nursing Home Background"
-          className="w-full h-full object-cover"
-        />
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${settings.hero_image})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          width: '100%',
+          height: '100vh'
+        }}
+      >
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/60 to-transparent"></div>
       </div>
 
