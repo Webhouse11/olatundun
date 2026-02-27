@@ -65,11 +65,13 @@ export default function About() {
 
             <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
               <div className="flex flex-col md:flex-row gap-6 items-center">
-                <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-4 border-primary/10">
-                  <SafeImage
-                    src={settings.ceo_image}
+                <div className="flex-shrink-0">
+                  <img
+                    src={settings.ceo_image || "https://res.cloudinary.com/dhzouslh1/image/upload/c_scale,w_300,f_auto,q_auto/v1772182747/1000097622_ucji4x.png"}
                     alt="CEO Portrait"
-                    className="w-full h-full object-cover"
+                    style={{ width: '100%', maxWidth: '300px', height: 'auto', objectFit: 'cover', borderRadius: '8px' }}
+                    loading="lazy"
+                    onError={(e) => { e.currentTarget.src = '/images/default-ceo.jpg'; }}
                   />
                 </div>
                 <div>

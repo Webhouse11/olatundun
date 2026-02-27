@@ -30,7 +30,7 @@ const defaultSettings = {
   "about_image": "/images/about_image.png",
   "ceo_name": "Adio Lateefat Oluwakemi",
   "ceo_role": "Founder & Lead Nurse",
-  "ceo_image": "https://drive.google.com/uc?export=view&id=1PMXGLhLb6td-uQelbk87_HSCwNZed2dz",
+  "ceo_image": "https://res.cloudinary.com/dhzouslh1/image/upload/c_scale,w_300,f_auto,q_auto/v1772182747/1000097622_ucji4x.png",
   "contact_phone": "08078175508",
   "contact_email": "olatundungeriatric25@gmail.com",
   "contact_address": "123 Healthcare Avenue, Osogbo, Osun State, Nigeria",
@@ -54,8 +54,8 @@ db.prepare("UPDATE settings SET value = ? WHERE key = 'logo_url'").run("https://
 // Force update the hero image URL to the new Cloudinary link
 db.prepare("UPDATE settings SET value = ? WHERE key = 'hero_image'").run("https://res.cloudinary.com/dhzouslh1/image/upload/c_fill,w_auto,f_auto,q_auto/v1772182745/1000097638_rczupj.jpg");
 
-// Force update the CEO image URL to the new Google Drive link
-db.prepare("UPDATE settings SET value = ? WHERE key = 'ceo_image'").run("https://drive.google.com/uc?export=view&id=1PMXGLhLb6td-uQelbk87_HSCwNZed2dz");
+// Force update the CEO image URL to the new Cloudinary link
+db.prepare("UPDATE settings SET value = ? WHERE key = 'ceo_image'").run("https://res.cloudinary.com/dhzouslh1/image/upload/c_scale,w_300,f_auto,q_auto/v1772182747/1000097622_ucji4x.png");
 
 async function startServer() {
   const app = express();
